@@ -1,0 +1,129 @@
+//INTERFACE TEST AND ARTHIMETIC CLASS
+interface Test {
+    int square(int n);
+}
+
+class Arithmetic implements Test {
+
+    public int square(int n) {
+        return n * n;
+    }
+}
+
+public class ToTestInt {
+    public static void main(String[] args) {
+
+        Arithmetic obj = new Arithmetic();
+
+        System.out.println("Square = " + obj.square(5));
+    }
+}
+//OUTER CLASS AND INNER CLASS
+class Outer {
+
+    void display() {
+        System.out.println("Display of Outer Class");
+    }
+
+    class Inner {
+
+        void display() {
+            System.out.println("Display of Inner Class");
+        }
+    }
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Outer obj = new Outer();
+        obj.display();
+
+        Outer.Inner in = obj.new Inner();
+        in.display();
+    }
+}
+//POINT CLASS
+class Point {
+
+    private int x;
+    private int y;
+
+    Point() {
+        x = 0;
+        y = 0;
+    }
+
+    Point(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    void setX(int x) {
+        this.x = x;
+    }
+
+    void setY(int y) {
+        this.y = y;
+    }
+
+    void setXY(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    void display() {
+        System.out.println("X = " + x);
+        System.out.println("Y = " + y);
+    }
+
+    public static void main(String[] args) {
+
+        Point p = new Point();
+
+        p.setXY(10,20);
+
+        p.display();
+    }
+}
+//BOX AND BOX3D
+class Box {
+
+    int length;
+    int breadth;
+
+    Box(int length, int breadth) {
+        this.length = length;
+        this.breadth = breadth;
+    }
+
+    int area() {
+        return length * breadth;
+    }
+}
+
+class Box3D extends Box {
+
+    int height;
+
+    Box3D(int length, int breadth, int height) {
+        super(length, breadth);
+        this.height = height;
+    }
+
+    int volume() {
+        return length * breadth * height;
+    }
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Box3D obj = new Box3D(10, 5, 4);
+
+        System.out.println("Area = " + obj.area());
+        System.out.println("Volume = " + obj.volume());
+    }
+}
